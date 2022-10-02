@@ -11,7 +11,7 @@ export class CrashImageDirective {
   @HostListener('error')
   loadImageDefault() {
     const imgElement = this.elementRef.nativeElement;
-    imgElement.src = '../../../../assets/not-found.png';
+    imgElement.src = 'assets/not-found.png';
   }
 
 

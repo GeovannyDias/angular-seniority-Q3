@@ -4,6 +4,8 @@ import { ModalConfigI } from '../../models/modal-config.model';
 import { PlayerService } from '../../services/player/player.service';
 import { environment } from "../../../../../environments/environment";
 import { PlayerI } from '../../models/player.model';
+import { PositionService } from '../../services/position/position.service';
+import { PositionI } from '../../models/position.model';
 
 @Component({
   selector: 'app-home-modal',
@@ -16,15 +18,18 @@ export class HomeModalComponent implements OnInit {
   title: string = 'Agregar Juagador';
   formPlayer: FormGroup;
   idAuthor: number = environment.authorId;
+  positionList: PositionI[] = [];
 
   constructor(
     private fb: FormBuilder,
     private playerService: PlayerService,
+    private positionService: PositionService,
   ) {
     this.formPlayer = this.initForm();
   }
 
   ngOnInit(): void {
+    this.getPositions();
   }
 
   open(refParams?: ModalConfigI) {
@@ -50,6 +55,19 @@ export class HomeModalComponent implements OnInit {
       skills: [0, Validators.required],
       idAuthor: [this.idAuthor, Validators.required],
       idPosition: [0, Validators.required]
+    });
+  }
+
+  getPositions() {
+    this.positionService.getPositions().subscribe(res => {
+      console.log(res);
+      this.positionList = res;
+    });
+  }
+
+  getPositionById(id: number) {
+    this.positionService.getPositionById(id).subscribe(res => {
+      console.log(res);
     });
   }
 
