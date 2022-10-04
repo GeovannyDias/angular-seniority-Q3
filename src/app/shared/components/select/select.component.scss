@@ -1,0 +1,67 @@
+select {
+    width: 100%;
+    margin: 10px 0;
+    border: none;
+    background-color: #fff;
+    border: 1px solid #dedede;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+
+    // -webkit-appearance: none;
+    // -moz-appearance: none;
+    // appearance: none;
+
+    &:focus {
+        outline: 0;
+        border: 1px solid rgba(101, 101, 101, 0.5);
+        box-shadow: 0px 0px 2px 1px rgba(147, 147, 147, 0.3);
+    }
+
+    &::placeholder {
+        color: #d5d5d5;
+    }
+
+
+}
+
+select option::after {
+    background-color: red !important;
+}
+
+
+select:required:invalid {
+    color: #808080;
+}
+
+option[value=""][disabled] {
+    display: none;
+}
+
+option {
+    color: #555;
+}
+
+
+
+select {
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+}
+
+select:hover {
+    background-color: gren;
+}
+
+option:hover {
+    background-color: yellow;
+}
+
+
+
+
+
+
+.ng-invalid.ng-touched {
+    border: 1px solid #a94442;
+}

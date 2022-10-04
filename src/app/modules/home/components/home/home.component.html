@@ -6,6 +6,8 @@
         <button (click)="openModal()" class="btn">Agregar</button>
     </div>
 
+    <app-select></app-select>
+
     <div class="card-content">
         <app-card *ngFor="let player of playerList$" [dataPlayer]="player" (setUpdateOutput)="updatePlayer($event)"
             (setDeleteOutput)="deletePlayer($event)"></app-card>
