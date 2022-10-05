@@ -1,9 +1,73 @@
 /** primary **/
 $color-primary: #505050ff;
 $color-primary-rgb: 80, 80, 255;
-$color-primary-contrast: #e6e6e6ff;
-$color-primary-contrast-rgb: 230, 230, 255;
+$color-primary-contrast: #ffffff;
+$color-primary-contrast-rgb: 255, 255, 255;
 
 /** secondary **/
-$color-secondary: #555;
-$color-secondary-rgb: 85, 85, 85;
+$color-secondary: #5260ff;
+$color-secondary-rgb: 82, 96, 255;
+
+/** tertiary **/
+$color-tertiary: #5260ff;
+$color-tertiary-rgb: 82, 96, 255;
+
+/** success **/
+$color-success: #2dd36f;
+$color-success-rgb: 45, 211, 111;
+
+/** warning **/
+$color-warning: #ffc409;
+$color-warning-rgb: 255, 196, 9;
+
+/** danger **/
+$color-danger: #eb445a;
+$color-danger-rgb: 235, 68, 90;
+
+/** dark **/
+$color-dark: #555;
+$color-dark-rgb: 85, 85, 85;
+
+/** medium **/
+$color-medium: #92949c;
+$color-medium-rgb: 146, 148, 156;
+
+/** light **/
+$color-light: #f4f5f8;
+$color-light-rgb: 244, 245, 248;
+
+/** background **/
+$color-background: #e6e6e6ff;
+$color-background-rgb: 230, 230, 255;
+
+/** form **/
+$border-form: #dedede;
+$border-form-focus: 1px solid rgba(101, 101, 101, 0.5);
+$box-shadow-form-focus: 0px 0px 2px 1px rgba(147, 147, 147, 0.3);
+
+
+
+
+
+/** primary original**/
+// $color-primary: #3880ff;
+// $color-primary-rgb: 56, 128, 255;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// https://ionicframework.com/docs/theming/colors
+// https://ionicframework.com/docs/theming/color-generator

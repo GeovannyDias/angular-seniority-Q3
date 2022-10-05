@@ -1,5 +1,6 @@
 import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { SelectItemI } from "./models/select.model";
 
 const CONTROL_VALUE_ACCESSOR = {
   provide: NG_VALUE_ACCESSOR,
@@ -14,9 +15,10 @@ const CONTROL_VALUE_ACCESSOR = {
   providers: [CONTROL_VALUE_ACCESSOR]
 })
 export class SelectComponent implements OnInit, ControlValueAccessor {
+  @Input() label: string = "";
   @Input() placeholder: string = ""; // + required = true
   @Input() required: boolean = false;
-  @Input() data: any[] = [];
+  @Input() data: SelectItemI[] = [];
   field: string | any = '';
   isDisabled: boolean = false;
 

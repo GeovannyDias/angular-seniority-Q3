@@ -1,24 +1,27 @@
+@import '../../../../assets/scss/variables.scss';
+
 input {
     width: 100%;
-    margin: 10px 0;
-    border: none;
-    background-color: transparent;
-    background-color: rgba(255, 255, 255, 0.4);
-    border: 1px solid #dedede;
+    margin: 5px 0;
+    border: 1px solid $border-form;
+    background-color: #ffffff;
     padding: 0.5rem 1rem;
     border-radius: 5px;
 
     &:focus {
         outline: 0;
-        border: 1px solid rgba(101, 101, 101, 0.5);
-        box-shadow: 0px 0px 2px 1px rgba(147, 147, 147, 0.3);
+        border: $border-form-focus;
+        box-shadow: $box-shadow-form-focus;
     }
 
     &::placeholder {
-        color: #d5d5d5;
+        color: $color-medium;
     }
 }
 
+
+// FORM CONTROL
+
 .ng-invalid.ng-touched {
-    border: 1px solid #a94442;
+    border: 1px solid $color-danger;
 }

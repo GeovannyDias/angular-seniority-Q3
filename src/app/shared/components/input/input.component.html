@@ -1,3 +1,4 @@
+<label>{{label}}</label>
 <input type="text" placeholder="Name TEST" [(ngModel)]="field" (ngModelChange)="onChangeFn($event)"
-    [disabled]="isDisabled" (blur)="onTouchedFn()" required [type]="type" [placeholder]="placeholder"
+    [disabled]="isDisabled" (blur)="onTouchedFn()" [type]="type" [placeholder]="placeholder" [required]="required"
     [minlength]="minlength" [maxlength]="maxlength" />

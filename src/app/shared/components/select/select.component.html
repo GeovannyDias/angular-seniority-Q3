@@ -1,7 +1,8 @@
+<label>{{label}}</label>
 <select name="cars" id="cars" [(ngModel)]="field" [disabled]="isDisabled" [required]="required">
     <option value="" hidden disabled>{{placeholder}}</option>
-    <option class="op" value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
+    <option *ngFor="let item of data" [value]="item.value">{{item.label}}</option>
+    <!-- <option value="saab">Saab</option>
     <option value="mercedes">Mercedes</option>
-    <option value="audi">Audi</option>
+    <option value="audi">Audi</option> -->
 </select>

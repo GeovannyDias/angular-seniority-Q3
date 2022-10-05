@@ -8,8 +8,10 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => InputComponent), multi: true }]
 })
 export class InputComponent implements OnInit, ControlValueAccessor {
+  @Input() label: string = "";
   @Input() type: string = "text";
   @Input() placeholder: string = "";
+  @Input() required: boolean = false;
   @Input() minlength: number | string = "";
   @Input() maxlength: number | string = "";
 

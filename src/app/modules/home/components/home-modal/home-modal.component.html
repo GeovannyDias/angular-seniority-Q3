@@ -6,15 +6,18 @@
         </div>
         <br>
         <form [formGroup]="formPlayer" class="form-group">
-            <label for="">Nombre:</label>
-            <app-input formControlName="firstName" class="form-control" required></app-input>
-            <label for="">Apellido:</label>
-            <app-input formControlName="lastName" class="form-control" required></app-input>
-            <label for="">Imagen:</label>
-            <app-input formControlName="image" class="form-control" required></app-input>
-            <label for="">Posición:</label>
-            <app-input formControlName="idPosition" class="form-control" required></app-input>
-
+            <app-input label="Nombre:" placeholder="Nombre" formControlName="firstName" class="form-control"
+                [required]="true">
+            </app-input>
+            <app-input label="Apellido:" placeholder="Apellido" formControlName="lastName" class="form-control"
+                [required]="true">
+            </app-input>
+            <app-input label="Imagen:" placeholder="Imagen" formControlName="image" class="form-control"
+                [required]="true">
+            </app-input>
+            <app-select label="Posición:" placeholder="Seleccione posición" formControlName="idPosition"
+                class="form-control" [required]="true" [data]="positionList">
+            </app-select>
 
             <app-slider formControlName="attack" [label]="'Ataque'" class="form-control" required></app-slider>
             <app-slider formControlName="defense" [label]="'Defensa'" class="form-control" required></app-slider>
@@ -22,7 +25,7 @@
 
             <br />
             <br />
-            
+
             <div class="btn-container">
                 <button (click)="validateForm()" class="btn">Agregar</button>
             </div>

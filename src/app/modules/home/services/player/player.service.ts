@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
 import { environment } from '../../../../../environments/environment';
 import { ENDPOINTS } from '../../../../cores/config/endpoints';
 import { getApiUrl } from '../../../../cores/services/api-url';
@@ -47,7 +48,11 @@ export class PlayerService {
   postSearchPlayer(search: SearchI) {
     const url = getApiUrl(ENDPOINTS.PLAYER);
     const headers = new HttpHeaders().set("author", this.idAuthor);
-    return this.http.post(url, search, { headers });
+    return this.http.post(url, search, { headers })
+      .pipe(
+        debounceTime(400),
+        distinctUntilChanged()
+      );
   }
 
 
@@ -61,3 +66,8 @@ export class PlayerService {
 
 // const headers = new HttpHeaders().set("author", this.idAuthor);
 // return this.http.get<PlayerI[]>(url, { headers });
+
+
+// DEBOUNCE
+// https://andrewhalil.com/2021/03/29/efficient-filtering-of-results-using-rxjs-debounce-in-angular-applications/
+// https://blog.bitsrc.io/3-ways-to-debounce-http-requests-in-angular-c407eb165ada

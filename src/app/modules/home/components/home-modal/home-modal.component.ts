@@ -5,7 +5,8 @@ import { PlayerService } from '../../services/player/player.service';
 import { environment } from "../../../../../environments/environment";
 import { PlayerI } from '../../models/player.model';
 import { PositionService } from '../../services/position/position.service';
-import { PositionI } from '../../models/position.model';
+// import { PositionI } from '../../models/position.model';
+import { SelectItemI } from 'src/app/shared/components/select/models/select.model';
 
 @Component({
   selector: 'app-home-modal',
@@ -18,7 +19,7 @@ export class HomeModalComponent implements OnInit {
   title: string = 'Agregar Juagador';
   formPlayer: FormGroup;
   idAuthor: number = environment.authorId;
-  positionList: PositionI[] = [];
+  positionList: SelectItemI[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -54,14 +55,18 @@ export class HomeModalComponent implements OnInit {
       defense: [0, Validators.required],
       skills: [0, Validators.required],
       idAuthor: [this.idAuthor, Validators.required],
-      idPosition: [0, Validators.required]
+      idPosition: ['', Validators.required]
     });
   }
 
   getPositions() {
     this.positionService.getPositions().subscribe(res => {
       console.log(res);
-      this.positionList = res;
+      this.positionList = res.map(position => {
+        const { id, description } = position;
+        return { value: id, label: description };
+      });
+      console.log('selectItem:', this.positionList);
     });
   }
 

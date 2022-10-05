@@ -2,11 +2,11 @@
     <h1>MI EQUIPO</h1>
     <app-home-modal #modal (closeOutput)="closeModalEventListener($event)"></app-home-modal>
     <div class="top-content">
-        <app-input placeholder="Busacar por Nombre"></app-input>
+        <app-input placeholder="Busacar por Nombre" label="Geovanny Dias:"></app-input>
         <button (click)="openModal()" class="btn">Agregar</button>
     </div>
 
-    <app-select></app-select>
+    <app-select placeholder="Test placeholder" [required]="true" label="Geovanny Dias:"></app-select>
 
     <div class="card-content">
         <app-card *ngFor="let player of playerList$" [dataPlayer]="player" (setUpdateOutput)="updatePlayer($event)"
