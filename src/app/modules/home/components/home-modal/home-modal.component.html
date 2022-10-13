@@ -5,31 +5,54 @@
             <img src="../assets/close-icon.svg" (click)="close()" />
         </div>
         <br>
-        <form [formGroup]="formPlayer" class="form-group">
-            <app-input label="Nombre:" placeholder="Nombre" formControlName="firstName" class="form-control"
-                [required]="true">
-            </app-input>
-            <app-input label="Apellido:" placeholder="Apellido" formControlName="lastName" class="form-control"
-                [required]="true">
-            </app-input>
-            <app-input label="Imagen:" placeholder="Imagen" formControlName="image" class="form-control"
-                [required]="true">
-            </app-input>
-            <app-select label="Posición:" placeholder="Seleccione posición" formControlName="idPosition"
-                class="form-control" [required]="true" [data]="positionList">
-            </app-select>
 
-            <app-slider formControlName="attack" [label]="'Ataque'" class="form-control" required></app-slider>
-            <app-slider formControlName="defense" [label]="'Defensa'" class="form-control" required></app-slider>
-            <app-slider formControlName="skills" [label]="'Skills'" class="form-control" required></app-slider>
-
-            <br />
-            <br />
-
-            <div class="btn-container">
-                <button (click)="validateForm()" class="btn">Agregar</button>
+        <div class="grid">
+            <div class="grid-12 grid-md-6">
+                <div class="image-container">
+                    <img [src]="image" alt="" srcset="" appCrashImage>
+                </div>
             </div>
-        </form>
+            <div class="grid-12 grid-md-6">
+                <form [formGroup]="formPlayer" class="form-group">
+                    <div class="grid">
+                        <div class="grid-12 grid-md-6">
+                            <app-input label="Nombre:" placeholder="Nombre" formControlName="firstName"
+                                class="form-control" [required]="true">
+                            </app-input>
+                        </div>
+                        <div class="grid-12 grid-md-6">
+                            <app-input label="Apellido:" placeholder="Apellido" formControlName="lastName"
+                                class="form-control" [required]="true">
+                            </app-input>
+                        </div>
+                    </div>
+
+                    <div class="grid">
+                        <div class="grid-12 grid-md-6">
+                            <app-input label="Imagen:" placeholder="Imagen" formControlName="image" class="form-control"
+                                [required]="true">
+                            </app-input>
+                        </div>
+                        <div class="grid-12 grid-md-6">
+                            <app-select label="Posición:" placeholder="Seleccione posición" formControlName="idPosition"
+                                class="form-control" [required]="true" [data]="positionList">
+                            </app-select>
+                        </div>
+                    </div>
+
+                    <app-slider formControlName="attack" [label]="'Ataque'" class="form-control" required></app-slider>
+                    <app-slider formControlName="defense" [label]="'Defensa'" class="form-control" required>
+                    </app-slider>
+                    <app-slider formControlName="skills" [label]="'Skills'" class="form-control" required></app-slider>
+                    <br />
+                    <div class="btn-container">
+                        <button (click)="validateForm()" class="btn">Agregar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
         <!-- {{formPlayer.value | json}} -->
     </div>
 </div>

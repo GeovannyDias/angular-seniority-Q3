@@ -21,6 +21,11 @@ export class HomeModalComponent implements OnInit {
   idAuthor: number = environment.authorId;
   positionList: SelectItemI[] = [];
 
+  // image: string = 'https://media.canalnet.tv/2020/08/leomessi.jpg';
+  // image: string = 'https://files.lafm.com.co/assets/public/2019-06/messi.jpg';
+  image: string = '';
+
+
   constructor(
     private fb: FormBuilder,
     private playerService: PlayerService,
