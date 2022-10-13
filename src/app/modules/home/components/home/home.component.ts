@@ -52,3 +52,9 @@ export class HomeComponent implements OnInit {
   }
 
 }
+
+
+
+// Manipulando el DOM en Angular de forma segura
+// http://blog.enriqueoriol.com/2017/08/angular-dom-renderer.html
+// https://blog.enriqueoriol.com/

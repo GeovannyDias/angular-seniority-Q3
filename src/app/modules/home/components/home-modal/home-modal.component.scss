@@ -1,7 +1,7 @@
 .container {
-    display: none;
+    // display: none;
     position: fixed;
-    z-index: 2;
+    z-index: 10;
     padding-top: 100px;
     left: 0;
     top: 0;
@@ -25,11 +25,19 @@
     justify-content: space-between;
 }
 
-
-
 // BUTTON
 
 .btn-container {
     display: flex;
     justify-content: center;
+}
+
+@media(max-width: 540px) {
+    .container {
+        padding-top: 100px;
+    }
+
+    .content {
+        width: 100%;
+    }
 }
