@@ -1,11 +1,11 @@
-$grid-columns: 12;
-$unit: 8px;
+// $grid-columns: 12;
+// $unit: 8px;
 
 // Row
 .grid {
     display: grid;
     grid-template-columns: repeat($grid-columns, 1fr);
-    gap: $unit * 2; // = 1rem = 16px
+    gap: ($unit * 2); // = 1rem = 16px
     padding: $unit 0; // = 0.5rem = 8px
 }
 
@@ -53,8 +53,3 @@ $unit: 8px;
         }
     }
 }
-
-
-
-
-

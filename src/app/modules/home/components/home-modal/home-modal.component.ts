@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ModalConfigI } from '../../models/modal-config.model';
 import { PlayerService } from '../../services/player/player.service';
 import { environment } from "../../../../../environments/environment";
@@ -14,16 +14,16 @@ import { SelectItemI } from 'src/app/shared/components/select/models/select.mode
   styleUrls: ['./home-modal.component.scss']
 })
 export class HomeModalComponent implements OnInit {
-  @ViewChild('myModal', { static: false }) modal!: ElementRef;
+  @ViewChild('myModal', { static: true }) modal!: ElementRef;
   @Output() closeOutput = new EventEmitter<boolean>();
-  title: string = 'Agregar Juagador';
+  title: string = 'Agregar Jugador';
   formPlayer: FormGroup;
-  idAuthor: number = environment.authorId;
+  authorId: number = environment.authorId;
   positionList: SelectItemI[] = [];
 
   // image: string = 'https://media.canalnet.tv/2020/08/leomessi.jpg';
   // image: string = 'https://files.lafm.com.co/assets/public/2019-06/messi.jpg';
-  image: string = '';
+  // image: string = '';
 
 
   constructor(
@@ -49,6 +49,7 @@ export class HomeModalComponent implements OnInit {
   close(ref?: any) {
     this.modal.nativeElement.style.display = 'none';
     this.closeOutput.emit(ref);
+    this.formPlayer.reset();
   }
 
   initForm() {
@@ -59,10 +60,20 @@ export class HomeModalComponent implements OnInit {
       attack: [0, Validators.required],
       defense: [0, Validators.required],
       skills: [0, Validators.required],
-      idAuthor: [this.idAuthor, Validators.required],
+      idAuthor: [this.authorId, Validators.required],
       idPosition: ['', Validators.required]
     });
   }
+
+  get firstName() { return this.formPlayer.get('firstName') as FormControl; }
+  get lastName() { return this.formPlayer.get('lastName') as FormControl; }
+  get image() { return this.formPlayer.get('image') as FormControl; }
+  get attack() { return this.formPlayer.get('attack') as FormControl; }
+  get defense() { return this.formPlayer.get('defense') as FormControl; }
+  get skills() { return this.formPlayer.get('skills') as FormControl; }
+  // get idAuthor() { return this.formPlayer.get('idAuthor') as FormControl; }
+  get idPosition() { return this.formPlayer.get('idPosition') as FormControl; }
+
 
   getPositions() {
     this.positionService.getPositions().subscribe(res => {

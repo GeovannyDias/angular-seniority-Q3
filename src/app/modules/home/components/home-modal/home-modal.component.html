@@ -7,36 +7,51 @@
         <br>
 
         <div class="grid">
-            <div class="grid-12 grid-md-6">
+            <div class="grid-12 grid-xs-6">
                 <div class="image-container">
-                    <img [src]="image" alt="" srcset="" appCrashImage>
+                    <img [src]="image.value" alt="" srcset="" appCrashImage>
                 </div>
             </div>
-            <div class="grid-12 grid-md-6">
+            <div class="grid-12 grid-xs-6">
                 <form [formGroup]="formPlayer" class="form-group">
                     <div class="grid">
-                        <div class="grid-12 grid-md-6">
+                        <div class="grid-12 grid-xs-6">
                             <app-input label="Nombre:" placeholder="Nombre" formControlName="firstName"
                                 class="form-control" [required]="true">
                             </app-input>
+                            <span *ngIf="(firstName?.dirty || firstName?.touched) && firstName?.errors?.['required']"
+                                class="error">
+                                * Field required
+                            </span>
                         </div>
-                        <div class="grid-12 grid-md-6">
+                        <div class="grid-12 grid-xs-6">
                             <app-input label="Apellido:" placeholder="Apellido" formControlName="lastName"
                                 class="form-control" [required]="true">
                             </app-input>
+                            <span *ngIf="(lastName?.dirty || lastName?.touched) && lastName?.errors?.['required']"
+                                class="error">
+                                * Field required
+                            </span>
                         </div>
                     </div>
 
                     <div class="grid">
-                        <div class="grid-12 grid-md-6">
+                        <div class="grid-12 grid-xs-6">
                             <app-input label="Imagen:" placeholder="Imagen" formControlName="image" class="form-control"
                                 [required]="true">
                             </app-input>
+                            <span *ngIf="(image?.dirty || image?.touched) && image?.errors?.['required']" class="error">
+                                * Field required
+                            </span>
                         </div>
-                        <div class="grid-12 grid-md-6">
+                        <div class="grid-12 grid-xs-6">
                             <app-select label="Posición:" placeholder="Seleccione posición" formControlName="idPosition"
                                 class="form-control" [required]="true" [data]="positionList">
                             </app-select>
+                            <span *ngIf="(idPosition?.dirty || idPosition?.touched) && idPosition?.errors?.['required']"
+                                class="error">
+                                * Field required
+                            </span>
                         </div>
                     </div>
 
