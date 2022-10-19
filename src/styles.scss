@@ -18,6 +18,12 @@ label {
   font-weight: bold;
 }
 
+@media(max-width: 576px) {
+  html body {
+    background-color: #ffffff;
+  }
+}
+
 
 // :root {
 //   --primary-color: #505050ff;
