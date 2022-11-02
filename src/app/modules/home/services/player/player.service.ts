@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { debounceTime, distinctUntilChanged } from 'rxjs';
+import { take } from 'rxjs';
 import { environment } from '../../../../../environments/environment';
 import { ENDPOINTS } from '../../../../cores/config/endpoints';
 import { getApiUrl } from '../../../../cores/services/api-url';
@@ -46,13 +46,13 @@ export class PlayerService {
   }
 
   postSearchPlayer(search: SearchI) {
-    const url = getApiUrl(ENDPOINTS.PLAYER);
+    const url = getApiUrl(ENDPOINTS.PLAYER_SEARCH);
     const headers = new HttpHeaders().set("author", this.idAuthor);
-    return this.http.post(url, search, { headers })
+    return this.http.post<PlayerI[]>(url, search, { headers })
       .pipe(
-        debounceTime(400),
-        distinctUntilChanged()
+        take(1)
       );
+
   }
 
 

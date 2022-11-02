@@ -23,6 +23,11 @@
         font-weight: bolder;
         width: 100%;
         text-align: center;
+
+        span {
+            background-color: rgba(236, 236, 236, 0.5);
+            padding: 0 5px;
+        }
     }
 
     &__score {

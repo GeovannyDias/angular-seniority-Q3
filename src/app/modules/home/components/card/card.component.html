@@ -1,6 +1,6 @@
 <div class="card" *ngIf="dataPlayer">
     <img [src]="dataPlayer.image" alt="" class="card__image" appCrashImage>
-    <div class="card__name">{{dataPlayer.firstName + " " + dataPlayer.lastName}}</div>
+    <div class="card__name"><span>{{dataPlayer.firstName + " " + dataPlayer.lastName}}</span></div>
     <div class="card__score">
         <div class="score">
             <div>Ataque</div>
@@ -25,4 +25,3 @@
 
 <!-- <div class="card__image" style="text-align: center" [style.background-image]="'url(' + dataPlayer.image+')'" appCrashImage>  -->
 <!-- <div class="card__image" style="text-align: center" [style.background-image]="'url(' + product.url+')'"> -->
-    

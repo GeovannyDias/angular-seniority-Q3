@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { PlayerI } from '../../models/player.model';
+import { debounceTime, Subject, Subscription } from 'rxjs';
+import { PlayerI, SearchI } from '../../models/player.model';
 import { PlayerService } from '../../services/player/player.service';
 import { HomeModalComponent } from '../home-modal/home-modal.component';
 
@@ -11,6 +12,9 @@ import { HomeModalComponent } from '../home-modal/home-modal.component';
 export class HomeComponent implements OnInit {
   @ViewChild('modal', { static: false }) modal!: HomeModalComponent;
   playerList$: PlayerI[] = [];
+  searchValue: string = '';
+  searchChanged: Subject<string> = new Subject<string>();
+  searchSubs!: Subscription;
 
   constructor(
     private playerService: PlayerService,
@@ -18,6 +22,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPlayers();
+    this.initSearch();
   }
 
   openModal(data?: any, action?: string) {
@@ -29,6 +34,24 @@ export class HomeComponent implements OnInit {
     if (event) {
       this.getPlayers();
     }
+  }
+
+  initSearch() {
+    this.searchSubs = this.searchChanged
+      .pipe(debounceTime(500))
+      .subscribe(value => this.searchByName(value));
+  }
+
+  searchByName(value: string) {
+    const data: SearchI = { search: value };
+    this.playerService.postSearchPlayer(data).subscribe(res => {
+      console.log('RES:', res);
+      this.playerList$ = res;
+    });
+  }
+
+  onSearch(value: string) {
+    this.searchChanged.next(value.trim());
   }
 
   getPlayers() {
