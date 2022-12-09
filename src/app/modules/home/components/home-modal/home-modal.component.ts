@@ -35,7 +35,12 @@ export class HomeModalComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('Modal → ngOnInit');
     this.getPositions();
+  }
+
+  ngOnDestroy(): void {
+    console.log('Modal → ngOnDestroy');
   }
 
   open(refParams?: ModalConfigI) {
@@ -71,7 +76,6 @@ export class HomeModalComponent implements OnInit {
   get attack() { return this.formPlayer.get('attack') as FormControl; }
   get defense() { return this.formPlayer.get('defense') as FormControl; }
   get skills() { return this.formPlayer.get('skills') as FormControl; }
-  // get idAuthor() { return this.formPlayer.get('idAuthor') as FormControl; }
   get idPosition() { return this.formPlayer.get('idPosition') as FormControl; }
 
 

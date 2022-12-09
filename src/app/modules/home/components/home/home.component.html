@@ -1,6 +1,8 @@
 <div class="container">
     <h1>MI EQUIPO</h1>
-    <app-home-modal #modal (closeOutput)="closeModalEventListener($event)"></app-home-modal>
+    <div *ngIf="showModal">
+        <app-home-modal #modal (closeOutput)="closeModalEventListener($event)"></app-home-modal>
+    </div>
     <div class="top-content">
         <app-input placeholder="Buscar por Nombre" ngModel (ngModelChange)="onSearch($event)"></app-input>
         <div class="btn-container">

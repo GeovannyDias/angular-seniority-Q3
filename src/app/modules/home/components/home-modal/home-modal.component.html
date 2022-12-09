@@ -37,7 +37,7 @@
 
                     <div class="grid">
                         <div class="grid-12 grid-xs-6">
-                            <app-input label="Imagen:" placeholder="Imagen" formControlName="image" class="form-control"
+                            <app-input label="Imagen (URL):" placeholder="Imagen" formControlName="image" class="form-control"
                                 [required]="true">
                             </app-input>
                             <span *ngIf="(image?.dirty || image?.touched) && image?.errors?.['required']" class="error">

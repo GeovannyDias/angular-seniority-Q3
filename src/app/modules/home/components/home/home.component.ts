@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { debounceTime, Subject, Subscription } from 'rxjs';
 import { PlayerI, SearchI } from '../../models/player.model';
 import { PlayerService } from '../../services/player/player.service';
@@ -9,12 +9,13 @@ import { HomeModalComponent } from '../home-modal/home-modal.component';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   @ViewChild('modal', { static: false }) modal!: HomeModalComponent;
   playerList$: PlayerI[] = [];
   searchValue: string = '';
   searchChanged: Subject<string> = new Subject<string>();
   searchSubs!: Subscription;
+  showModal: boolean = false;
 
   constructor(
     private playerService: PlayerService,
@@ -25,12 +26,21 @@ export class HomeComponent implements OnInit {
     this.initSearch();
   }
 
+  ngOnDestroy(): void {
+    this.searchSubs.unsubscribe();
+  }
+
   openModal(data?: any, action?: string) {
-    this.modal.open({ width: '15px', data: { action: action ? action : 'new', data: data } });
+    this.showModal = true;
+    // setTimeout(() => {
+      this.modal.open({ width: '15px', data: { action: action ? action : 'new', data: data } });
+    // }, 100);
+    
   }
 
   closeModalEventListener(event: boolean) {
     console.log('Event:', event);
+    this.showModal = false;
     if (event) {
       this.getPlayers();
     }
