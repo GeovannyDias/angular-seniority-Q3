@@ -44,7 +44,7 @@ export class HomeModalComponent implements OnInit {
   }
 
   open(refParams?: ModalConfigI) {
-    this.modal.nativeElement.style.display = 'block';
+    // this.modal.nativeElement.style.display = 'block';
     console.log(refParams);
     if (refParams?.data?.action === 'update') {
       this.loadData(refParams?.data?.data)
@@ -52,7 +52,7 @@ export class HomeModalComponent implements OnInit {
   }
 
   close(ref?: any) {
-    this.modal.nativeElement.style.display = 'none';
+    // this.modal.nativeElement.style.display = 'none';
     this.closeOutput.emit(ref);
     this.formPlayer.reset();
   }

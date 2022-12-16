@@ -17,7 +17,7 @@
                     <div class="grid">
                         <div class="grid-12 grid-xs-6">
                             <app-input label="Nombre:" placeholder="Nombre" formControlName="firstName"
-                                class="form-control" [required]="true">
+                                [required]="true">
                             </app-input>
                             <span *ngIf="(firstName?.dirty || firstName?.touched) && firstName?.errors?.['required']"
                                 class="error">
@@ -26,7 +26,7 @@
                         </div>
                         <div class="grid-12 grid-xs-6">
                             <app-input label="Apellido:" placeholder="Apellido" formControlName="lastName"
-                                class="form-control" [required]="true">
+                                [required]="true">
                             </app-input>
                             <span *ngIf="(lastName?.dirty || lastName?.touched) && lastName?.errors?.['required']"
                                 class="error">
@@ -37,7 +37,7 @@
 
                     <div class="grid">
                         <div class="grid-12 grid-xs-6">
-                            <app-input label="Imagen (URL):" placeholder="Imagen" formControlName="image" class="form-control"
+                            <app-input label="Imagen (URL):" placeholder="Imagen" formControlName="image"
                                 [required]="true">
                             </app-input>
                             <span *ngIf="(image?.dirty || image?.touched) && image?.errors?.['required']" class="error">
@@ -46,7 +46,7 @@
                         </div>
                         <div class="grid-12 grid-xs-6">
                             <app-select label="Posición:" placeholder="Seleccione posición" formControlName="idPosition"
-                                class="form-control" [required]="true" [data]="positionList">
+                                [required]="true" [data]="positionList">
                             </app-select>
                             <span *ngIf="(idPosition?.dirty || idPosition?.touched) && idPosition?.errors?.['required']"
                                 class="error">
@@ -55,10 +55,10 @@
                         </div>
                     </div>
 
-                    <app-slider formControlName="attack" [label]="'Ataque'" class="form-control" required></app-slider>
-                    <app-slider formControlName="defense" [label]="'Defensa'" class="form-control" required>
+                    <app-slider formControlName="attack" [label]="'Ataque'" required></app-slider>
+                    <app-slider formControlName="defense" [label]="'Defensa'" required>
                     </app-slider>
-                    <app-slider formControlName="skills" [label]="'Skills'" class="form-control" required></app-slider>
+                    <app-slider formControlName="skills" [label]="'Skills'" required></app-slider>
                     <br />
                     <div class="btn-container">
                         <button (click)="validateForm()" class="btn">Agregar</button>

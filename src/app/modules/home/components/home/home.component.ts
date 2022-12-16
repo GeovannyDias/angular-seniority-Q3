@@ -32,9 +32,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   openModal(data?: any, action?: string) {
     this.showModal = true;
-    // setTimeout(() => {
+    setTimeout(() => {
       this.modal.open({ width: '15px', data: { action: action ? action : 'new', data: data } });
-    // }, 100);
+    }, 100);
     
   }
 
